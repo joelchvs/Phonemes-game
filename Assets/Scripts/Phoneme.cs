@@ -7,8 +7,9 @@ using UnityEngine;
 public class Phoneme
 {
  public string phoneme;
- public AudioClip phonemeSound;
+ public int phonemeSoundNumber;
  public string[] correctAnswers;
+ public string[] wrongAnswers;
 
 
 
