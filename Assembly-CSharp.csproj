@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\ManejodeEscenas.cs" />
      <Compile Include="Assets\Scripts\Phoneme.cs" />
+     <Compile Include="Assets\Scripts\ShowScore.cs" />
      <Compile Include="Assets\Scripts\Sonido.cs" />
      <Compile Include="Assets\UltraMare\Minimalist Cartoon UI Pack\Scripts\MyCursor.cs" />
      <Compile Include="Assets\UltraMare\Minimalist Cartoon UI Pack\Scripts\StatsExample.cs" />

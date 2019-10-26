@@ -10,77 +10,58 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Phoneme[] phonemes;
+    public static GameManager instance;
     //private static List<Phoneme> unansweredPhonemes;
-    private int currentPhoneme=-1;
+     [SerializeField]
+    public int currentPhoneme=-1;
     public AudioSource audioSrc;
     public AudioClip one;
     public AudioClip two;
     public AudioClip three;
     public AudioClip four;
-
-     [SerializeField]
+    [SerializeField]
+    public string correctAnswer;
+    [SerializeField]
+    public int score=0;
+    
+     //[SerializeField]
     // private AudioClip currentPhonemeSound;
 
-    void Start()
+   public void Start()
     {
+        instance=this;
         
         audioSrc = GetComponent<AudioSource>();
         SetCurrentPhoneme();
         SetOptions();
     }
 
-    void SetOptions ()
+   public void SetOptions ()
      {
-            //int [] buttonNames = new int[5]  { 99,  98, 92, 97, 95};
+         
 
          System.Random random = new System.Random();
          int randomNumber=random.Next(0, 6);
          int rightAnswer=random.Next(0, 3);
          int counter=0;
-         //string hola=phonemes[currentPhoneme].correctAnswers[0];
          
-        GameObject.Find("boton"+randomNumber).GetComponentInChildren<Text>().text = phonemes[currentPhoneme].correctAnswers[rightAnswer];
+         GameObject.Find("boton"+randomNumber).GetComponentInChildren<Text>().text = phonemes[currentPhoneme].correctAnswers[rightAnswer];
+         correctAnswer= "boton"+randomNumber;
 
-
-        //  for (int i = (phonemes[currentPhoneme].wrongAnswers.Length) - 1; i > 0; i--)  
-        // {  
-        //     int j =random.Next(0, i);
-        //     string temp =phonemes[currentPhoneme].wrongAnswers[i];  
-        //     phonemes[currentPhoneme].wrongAnswers[i] =phonemes[currentPhoneme].wrongAnswers[j];
-        //     phonemes[currentPhoneme].wrongAnswers[j]=temp;
-        // } 
-   
-        for(int i=0; i<=phonemes[currentPhoneme].wrongAnswers.Length; i++)
-        {
+         for(int i=0; i<phonemes[currentPhoneme].wrongAnswers.Length; i++)
+         {
             if(i==randomNumber)
             {
-                i++;
+                counter++;
             }
-            GameObject.Find("boton"+i).GetComponentInChildren<Text>().text = phonemes[currentPhoneme].wrongAnswers[counter];
+            GameObject.Find("boton"+counter).GetComponentInChildren<Text>().text = phonemes[currentPhoneme].wrongAnswers[i];
             counter++;
-        }
-
-
-            
-     
-
-    //     GameObject.Find("boton1").GetComponentInChildren<Text>().text = "uno";
-    //     GameObject.Find("boton2").GetComponentInChildren<Text>().text = "dos";
-    //     GameObject.Find("boton3").GetComponentInChildren<Text>().text = "tres";
-    //     GameObject.Find("boton4").GetComponentInChildren<Text>().text = "cuatro";
-    //     GameObject.Find("boton5").GetComponentInChildren<Text>().text = "cinco";
-    //     GameObject.Find("boton6").GetComponentInChildren<Text>().text = "seis";
-        
-    
+         }
     }
 
-    void SetCurrentPhoneme()
+    public void SetCurrentPhoneme()
     {   
         currentPhoneme++;
-        
-    // System.Random random = new System.Random();
-
-      //  currentPhoneme=random.Next(0, 4);
         switch (currentPhoneme)
             {
                  case 0:
@@ -125,27 +106,8 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void clickButton0()
-    {
-        if(String.Equals(GameObject.Find("boton0").GetComponentInChildren<Text>().text,"0"))
-        {
-            Debug.Log("CORRECTO!!!!!!!!");
-        }
-    }
+   
 
-   public bool checkAnswer (string answer)
-   {
-       bool isCorrect = false;
 
-       for (int i = 0; i< phonemes[currentPhoneme].correctAnswers.Length; i++)
-       {
-           if (String.Equals(answer, phonemes[currentPhoneme].correctAnswers[i]))
-           {
-               isCorrect= true;
-               break;
-           }
-       }
-       return isCorrect;
-   }
 
 }

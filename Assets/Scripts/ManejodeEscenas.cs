@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class ManejodeEscenas : MonoBehaviour
 {
+    public static ManejodeEscenas instance;
+
+public void Start()
+    {
+        instance=this;
+    }
     public void PlayGame()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
