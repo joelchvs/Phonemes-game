@@ -15,16 +15,18 @@ public class GameManager : MonoBehaviour
      [SerializeField]
     public int currentPhoneme=-1;
     public AudioSource audioSrc;
-    public AudioClip one;
-    public AudioClip two;
-    public AudioClip three;
-    public AudioClip four;
+    public AudioClip sh;
+    public AudioClip v;
+    public AudioClip u;
+    public AudioClip z;
     [SerializeField]
     public string correctAnswer;
     [SerializeField]
     public int score=0;
+
     
-     //[SerializeField]
+    
+
     // private AudioClip currentPhonemeSound;
 
    public void Start()
@@ -62,19 +64,20 @@ public class GameManager : MonoBehaviour
     public void SetCurrentPhoneme()
     {   
         currentPhoneme++;
+        
         switch (currentPhoneme)
             {
                  case 0:
-                    audioSrc.PlayOneShot(one);
+                    audioSrc.PlayOneShot(v);
                     break;
                  case 1:
-                    audioSrc.PlayOneShot(two);
+                    audioSrc.PlayOneShot(sh);
                     break;
                  case 2:
-                    audioSrc.PlayOneShot(three);
+                    audioSrc.PlayOneShot(u);
                     break;
                 case 3:
-                    audioSrc.PlayOneShot(four);
+                    audioSrc.PlayOneShot(z);
                     break;
             }
 
@@ -91,17 +94,17 @@ public class GameManager : MonoBehaviour
         switch (currentPhoneme)
       {
           case 0:
-              audioSrc.PlayOneShot(one);
-              break;
-          case 1:
-              audioSrc.PlayOneShot(two);
-              break;
-          case 2:
-              audioSrc.PlayOneShot(three);
-              break;
-          case 3:
-              audioSrc.PlayOneShot(four);
-              break;
+                    audioSrc.PlayOneShot(v);
+                    break;
+                 case 1:
+                    audioSrc.PlayOneShot(sh);
+                    break;
+                 case 2:
+                    audioSrc.PlayOneShot(u);
+                    break;
+                case 3:
+                    audioSrc.PlayOneShot(z);
+                    break;
       }
         
     }

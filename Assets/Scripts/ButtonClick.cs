@@ -1,9 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-
 using System;
 using UnityEngine;
-
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
@@ -15,6 +13,7 @@ public class ButtonClick : MonoBehaviour
      public void Start()
     {
         instance=this;
+        
         
     }
 
@@ -38,12 +37,25 @@ public class ButtonClick : MonoBehaviour
                 
                 ManejodeEscenas.instance.PlayGame();
             }
-        }else
+        }
+        else
         {
             if( GameManager.instance.score>(-5))
-            GameManager.instance.score--;
+            {
+                GameManager.instance.score--;
+                StartCoroutine(setWrongText());
+            }
         }
     }
+
+    private IEnumerator setWrongText()
+{
+        
+        GameObject.Find("wronganswertext").GetComponentInChildren<Text>().text="WRONG!";
+        yield return new WaitForSeconds(1f);
+        GameObject.Find("wronganswertext").GetComponentInChildren<Text>().text="";
+    
+}
       
 }
 
