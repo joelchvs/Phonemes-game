@@ -16,4 +16,9 @@ public void Start()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+
+    public void RestartGame()
+    {
+         UnityEngine.SceneManagement.SceneManager.LoadScene("menu");
+    }
 }

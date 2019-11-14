@@ -86,7 +86,10 @@ public class GameManager : MonoBehaviour
        // sound.PlayOneShot(currentPhonemeSound);
     }
 
-    
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
      public void ClickSound()
     {

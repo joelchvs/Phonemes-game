@@ -51,9 +51,9 @@ public class ButtonClick : MonoBehaviour
     private IEnumerator setWrongText()
 {
         
-        GameObject.Find("wronganswertext").GetComponentInChildren<Text>().text="WRONG!";
+        GameObject.Find("TextHolder").GetComponentInChildren<Text>().text=" WRONG ANSWER!";
         yield return new WaitForSeconds(1f);
-        GameObject.Find("wronganswertext").GetComponentInChildren<Text>().text="";
+        GameObject.Find("TextHolder").GetComponentInChildren<Text>().text="MATCH THE SOUND";
     
 }
       

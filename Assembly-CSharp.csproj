@@ -55,7 +55,10 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\ButtonClick.cs" />
      <Compile Include="Assets\Scripts\ButtonSound.cs" />
+     <Compile Include="Assets\Scripts\CloseButton.cs" />
+     <Compile Include="Assets\Scripts\ExitGame.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Scripts\MainMenuButton.cs" />
      <Compile Include="Assets\Scripts\ManejodeEscenas.cs" />
      <Compile Include="Assets\Scripts\Phoneme.cs" />
      <Compile Include="Assets\Scripts\ShowScore.cs" />
